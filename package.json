@@ -1,6 +1,6 @@
 {
   "name": "q-flat",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Flatten a nested object using query string syntax.",
   "author": "Dylan Piercey <pierceydylan@gmail.com>",
   "main": "index.js",

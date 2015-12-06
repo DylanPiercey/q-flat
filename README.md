@@ -16,6 +16,9 @@ var flat = require('q-flat');
 
 // Flatten nested objects.
 flat({ a: { b: { c: { 1 } } }); // -> { "a[b][c]": 1 }
+
+// Even flatten arrays with explicity syntax.
+flat({ a: [{ b: 1 }, { c: 2 }] }); // -> { 'a[][b]': 1, 'a[][c]': 2 }
 ```
 
 ### Contributions

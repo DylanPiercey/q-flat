@@ -1,4 +1,8 @@
 var toString = Object.prototype.toString;
+var defaults = {
+	"[object Array]": function () { return []; },
+	"[object Object]": function () { return {}; }
+}
 /**
  * @description
  * Go from regular object syntax to a querystring style object.
@@ -10,26 +14,43 @@ var toString = Object.prototype.toString;
  * @param {Object} obj
  */
 function qFlat (obj, path, result) {
-	result = result || {};
+	var type = toString.call(obj);
+	var inArray = type === "[object Array]";
+	if (result == null) {
+		if (type === "[object Object]") result = {};
+		else if (type === "[object Array]") result = [];
+		else return;
+	}
 
-	var val, type;
 	for (var key in obj) {
-		val  = obj[key];
+		var val = obj[key];
 		if (val === undefined || !obj.hasOwnProperty(key)) continue;
-		
+		if (inArray) key = "";
+
 		switch (toString.call(val)) {
-			case "[object Object]":
 			case "[object Array]":
-				qFlat(val, path ? path + "[" + key + "]" : key, result)
+				qFlat(val, join(path, key), result);
+				break;
+
+			case "[object Object]":
+				qFlat(val, join(path, key), result);
 				break;
 
 			default:
-				result[path ? path + "[" + key + "]" : key] = val;
+				result[join(path, key)] = val;
 				break;
 		}
 	}
 
 	return result;
+}
+
+function join (path, key) {
+	return path != null
+		? path + "[" + key + "]"
+		: key === ""
+			? "[]"
+			: key;
 }
 
 module.exports = qFlat;

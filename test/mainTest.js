@@ -8,4 +8,18 @@ describe("Q-Flat", function () {
 			{ "a[b][c]": 1 }
 		)
 	});
+
+	it("should flatten deep keys with arrays", function () {
+		assert.deepEqual(
+			flat({ a: { b: [{ c: 1 }] } }),
+			{ "a[b][][c]": 1 }
+		)
+	});
+
+	it("should maintain array", function () {
+		assert.deepEqual(
+			flat([{ a: 1 }, { b: 2 }]),
+			{ "[][a]": 1, "[][b]": 2 }
+		)
+	});
 });
