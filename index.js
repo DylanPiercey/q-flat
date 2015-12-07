@@ -25,7 +25,10 @@ function qFlat (obj, path, result) {
 	for (var key in obj) {
 		var val = obj[key];
 		if (val === undefined || !obj.hasOwnProperty(key)) continue;
-		if (inArray) key = "";
+		if (inArray) {
+			inArray = false;
+			key     = "";
+		};
 
 		switch (toString.call(val)) {
 			case "[object Array]":

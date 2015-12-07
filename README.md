@@ -18,7 +18,8 @@ var flat = require('q-flat');
 flat({ a: { b: { c: { 1 } } }); // -> { "a[b][c]": 1 }
 
 // Even flatten arrays with explicity syntax.
-flat({ a: [{ b: 1 }, { c: 2 }] }); // -> { 'a[][b]': 1, 'a[][c]': 2 }
+// Only the initial key is explicit, extra keys push to the array.
+flat({ a: [{ b: 1 }, { c: 2 }] }); // -> { 'a[][b]': 1, 'a[1][c]': 2 }
 ```
 
 ### Contributions
