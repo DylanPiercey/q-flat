@@ -15,7 +15,6 @@ var defaults = {
  */
 function qFlat (obj, path, result) {
 	var type = toString.call(obj);
-	var inArray = type === "[object Array]";
 	if (result == null) {
 		if (type === "[object Object]") result = {};
 		else if (type === "[object Array]") result = [];
@@ -25,11 +24,6 @@ function qFlat (obj, path, result) {
 	for (var key in obj) {
 		var val = obj[key];
 		if (val === undefined || !obj.hasOwnProperty(key)) continue;
-		if (inArray) {
-			inArray = false;
-			key     = "";
-		};
-
 		switch (toString.call(val)) {
 			case "[object Array]":
 				qFlat(val, join(path, key), result);
@@ -51,9 +45,7 @@ function qFlat (obj, path, result) {
 function join (path, key) {
 	return path != null
 		? path + "[" + key + "]"
-		: key === ""
-			? "[]"
-			: key;
+		: key;
 }
 
 module.exports = qFlat;
