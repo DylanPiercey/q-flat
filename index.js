@@ -1,8 +1,6 @@
-var toString = Object.prototype.toString;
-var defaults = {
-	"[object Array]": function () { return []; },
-	"[object Object]": function () { return {}; }
-}
+var toString       = Object.prototype.toString;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+
 /**
  * @description
  * Go from regular object syntax to a querystring style object.
@@ -23,16 +21,12 @@ function qFlat (obj, path, result) {
 
 	for (var key in obj) {
 		var val = obj[key];
-		if (val === undefined || !obj.hasOwnProperty(key)) continue;
+		if (val === undefined || !hasOwnProperty.call(obj, key)) continue;
 		switch (toString.call(val)) {
 			case "[object Array]":
-				qFlat(val, join(path, key), result);
-				break;
-
 			case "[object Object]":
 				qFlat(val, join(path, key), result);
 				break;
-
 			default:
 				result[join(path, key)] = val;
 				break;

@@ -16,7 +16,7 @@ describe("Q-Flat", function () {
 		)
 	});
 
-	it("should flatten array", function () {
+	it("should maintain array", function () {
 		assert.deepEqual(
 			flat([{ a: 1 }, { b: 2 }]),
 			{ "0[a]": 1, "1[b]": 2 }
