@@ -53,6 +53,6 @@ flatten({ a: [{ b: 1 }, { c: 2 }] }); // -> { 'a[0][b]': 1, 'a[1][c]': 2 }
 
 ### Contributions
 
-* Use gulp to run tests.
+* Use `npm test` to build and run tests.
 
 Please feel free to create a PR!
