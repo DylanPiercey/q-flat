@@ -1,7 +1,7 @@
 {
   "name": "q-flat",
   "description": "Flatten a nested object using query string syntax.",
-  "version": "0.2.3",
+  "version": "1.0.0",
   "author": "Dylan Piercey <pierceydylan@gmail.com>",
   "bugs": "https://github.com/DylanPiercey/q-flat/issues",
   "devDependencies": {
