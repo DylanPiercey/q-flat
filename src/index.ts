@@ -23,6 +23,7 @@ export function flatten(obj: any, path?: string, result?: any) {
   }
 
   for (const key in obj) {
+    /* istanbul ignore if */
     if (!obj.hasOwnProperty(key)) {
       continue;
     }
@@ -49,6 +50,6 @@ export function flatten(obj: any, path?: string, result?: any) {
 /**
  * Join path keys using query string `a[b]` style syntax.
  */
-function join(path: string|void, key: string) {
+function join(path: string | void, key: string) {
   return path != null ? path + "[" + key + "]" : key;
 }
