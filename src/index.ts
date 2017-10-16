@@ -3,11 +3,14 @@ const OBJECT_TYPE = "[object Object]";
 const ARRAY_TYPE = "[object Array]";
 
 /**
- * Go from regular object syntax to a querystring style object.
+ * @description
+ * Creates a querystring style object from a nested one.
  *
  * @example
  * var result = flatten({ a: { b: 1 }, c: { d: 1 } });
  * result; //-> { "a[b]": 1, "c[d]": 2 }
+ *
+ * @param obj The object to flatten.
  */
 export function flatten(obj: any, path?: string, result?: any) {
   const type = toString.call(obj);
