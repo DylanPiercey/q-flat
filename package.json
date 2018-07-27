@@ -5,18 +5,18 @@
   "author": "Dylan Piercey <pierceydylan@gmail.com>",
   "bugs": "https://github.com/DylanPiercey/q-flat/issues",
   "devDependencies": {
-    "@types/mocha": "^2.2.43",
-    "@types/node": "^8.0.34",
-    "coveralls": "^3.0.0",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.5.3",
+    "coveralls": "^3.0.2",
     "husky": "^0.14.3",
-    "lint-staged": "^4.2.3",
-    "mocha": "^4.0.1",
-    "nyc": "^11.2.1",
-    "prettier": "^1.7.4",
-    "ts-node": "^3.3.0",
-    "tslint": "^5.7.0",
-    "tslint-config-prettier": "^1.5.0",
-    "typescript": "^2.5.3"
+    "lint-staged": "^7.2.0",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2",
+    "prettier": "^1.13.7",
+    "ts-node": "^7.0.0",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.14.0",
+    "typescript": "^2.9.2"
   },
   "files": [
     "dist"

@@ -27,7 +27,7 @@ export function flatten(obj: any, path?: string, result?: any) {
 
   for (const key in obj) {
     /* istanbul ignore if */
-    if (!obj.hasOwnProperty(key)) {
+    if (!hasOwnProperty.call(obj, key)) {
       continue;
     }
 
@@ -37,8 +37,8 @@ export function flatten(obj: any, path?: string, result?: any) {
     }
 
     switch (toString.call(val)) {
-      case "[object Array]":
-      case "[object Object]":
+      case ARRAY_TYPE:
+      case OBJECT_TYPE:
         flatten(val, join(path, key), result);
         break;
       default:
